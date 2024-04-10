@@ -85,6 +85,7 @@ fabric.properties
 /wp-admin/
 /wp-content/index.php
 /wp-content/languages
+!/wp-content/plugins/like-button
 /wp-content/plugins/
 /wp-content/themes/index.php
 /wp-includes/
