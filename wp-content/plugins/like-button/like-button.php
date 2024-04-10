@@ -54,3 +54,43 @@ function like_button() {
 }
 
 add_shortcode( 'like_button', 'like_button' );
+
+function add_like() {
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . 'likes';
+
+    $post_id = $_POST['post_id'];
+
+    $data = [
+        'post_id' => $post_id
+    ];
+
+    $format = [
+        '%d'
+    ];
+
+    $success = $wpdb->insert( $table_name, $data, $format );
+
+    if ( $success ) {
+        echo 'Like added';
+    } else {
+        echo 'Error adding like';
+    }
+
+
+    wp_redirect( $_SERVER['HTTP_REFERER'] );
+    exit;
+}
+
+// add_action( 'wp_ajax_add_like', 'add_like' );
+
+add_action( 'admin_post_add_like', 'add_like' );
+
+// enqueue icons
+function my_theme_load_ionicons_font() {
+    // Load Ionicons font from CDN
+    wp_enqueue_script( 'my-theme-ionicons', 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js', array(), '5.2.3', true );
+}
+
+add_action( 'wp_enqueue_scripts', 'my_theme_load_ionicons_font' );
