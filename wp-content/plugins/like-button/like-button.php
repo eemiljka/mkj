@@ -46,7 +46,7 @@ function like_button() {
     $output = '<form id="like-form" method="post" action="'. admin_url( 'admin-post.php' ) .'">';
     $output .= '<input type="hidden" name="action" value="add_like">';
     $output .= '<input type="hidden" name="post_id" value="' . $post_id . '">';
-    $output .= '<button id="like-button"><ion-icon name="thumbs-up"></ion-icon></button>';
+    $output .= '<button class="like-button"><ion-icon name="heart-outline"></ion-icon></button>';
     $output .= '<span id="like-count">' . $likes . '</span>';
     $output .= '</form>';
 
@@ -94,3 +94,9 @@ function my_theme_load_ionicons_font() {
 }
 
 add_action( 'wp_enqueue_scripts', 'my_theme_load_ionicons_font' );
+
+function theme_enqueue_styles() {
+    wp_enqueue_style( 'main-css', get_template_directory_uri() . '/style.css', [], filemtime( get_template_directory() . '/style.css' ), 'all' );
+}
+
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
