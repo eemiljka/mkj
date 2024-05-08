@@ -88,12 +88,16 @@ function add_like() {
 add_action( 'admin_post_add_like', 'add_like' );
 
 // enqueue icons
-function my_theme_load_ionicons_font() {
+function setup_scripts(): void {
     // Load Ionicons font from CDN
     wp_enqueue_script( 'my-theme-ionicons', 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js', array(), '5.2.3', true );
+    wp_enqueue_script('like-button-script', plugin_dir_url(__FILE__), 'like-button.js', ['jQuery'], '1.0', true);
+    wp_localize_script('like-button-script', 'like_button', [
+        'ajax_url' => admin_url('admin-ajax.php')
+    ]);
 }
 
-add_action( 'wp_enqueue_scripts', 'my_theme_load_ionicons_font' );
+add_action( 'wp_enqueue_scripts', 'setup_scripts' );
 
 function theme_enqueue_styles() {
     wp_enqueue_style( 'main-css', get_template_directory_uri() . '/style.css', [], filemtime( get_template_directory() . '/style.css' ), 'all' );

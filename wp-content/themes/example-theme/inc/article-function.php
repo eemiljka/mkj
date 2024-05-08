@@ -5,6 +5,7 @@ function generate_article( $products ): void {
             $products->the_post();
             ?>
             <article class="product">
+                <div class="product-container">
                 <?php
                 the_post_thumbnail( 'thumbnail' );
                 the_title( '<h3>', '</h3>' );
@@ -15,6 +16,7 @@ function generate_article( $products ): void {
                     echo substr( $excerpt, 0, 100 );
                     ?>...
                 </p>
+                </div>
                 <a href="<?php the_permalink(); ?>">Read more</a>
                 <a href="#" class="open-modal" data-id="<?php echo get_the_ID(); ?>">Open in modal</a>
             </article>
