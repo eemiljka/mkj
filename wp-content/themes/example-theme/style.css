@@ -13,6 +13,11 @@ Text Domain: example-theme
     font-family: 'ringbearer', sans-serif;
 }
 
+.custom-logo {
+    max-height: 50px;
+    width: auto;
+}
+
 :root {
     margin: 0;
     padding: 0;
@@ -292,4 +297,36 @@ footer {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+.hero-two {
+    position: relative;
+    text-align: center;
+}
+
+.hero-two img{
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-us-text {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.contact-info {
+    flex: 1 1 50%;
+    padding-right: 20px;
+}
+
+.map {
+    flex: 1 1 50%;
+    overflow: hidden;
 }
