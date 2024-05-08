@@ -1,5 +1,10 @@
 <footer>
-    <p>&copy; 2024 E.K.</p>
+    <div class="footer-links">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
+        <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">About Us</a>
+        <a href="<?php echo esc_url( home_url( '/category/products' ) ); ?>">Products</a>
+    </div>
+    <p>Copyright 2024 E.K.</p>
 </footer>
 </div>
 
@@ -9,6 +14,7 @@
 </dialog>
 
 <?php wp_footer(); ?>
+
 </body>
 
 </html>
